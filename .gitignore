@@ -1,0 +1,12 @@
+# Build/bin
+bin
+bin-int
+
+# VS
+.vs
+**.vcxproj
+**.vcxproj.user
+**.sln
+
+# premake custom build
+premake/beta/*
