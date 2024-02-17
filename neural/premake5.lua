@@ -35,6 +35,6 @@ project "NEURAL"
 		
 	-- Staticlib vs. SharedLib	
 	filter "kind:SharedLib"
-		defines {"BUILD_DLL"}
+		defines {"BUILD_SHARED"}
 	
 	

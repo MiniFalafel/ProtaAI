@@ -1,6 +1,6 @@
 #include <iostream>
 
-#ifdef BUILD_DLL
+#ifdef BUILD_SHARED
 #	if defined(WINDOWS)
 #		define API __declspec(dllexport)
 #	elif defined(LINUX)
