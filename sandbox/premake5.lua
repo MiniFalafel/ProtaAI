@@ -24,3 +24,26 @@ project "SANDBOX"
 	{
 		"../neural/src"
 	}
+	
+	-- filters for compiler definitions
+	filter "configurations:WinDEBUG"
+		symbols "on"
+		defines {"WINDOWS","DEBUG"}
+	
+	filter "configurations:WinRELEASE"
+		optimize "on"
+		defines {"WINDOWS","RELEASE"}
+		
+	filter "configurations:LinuxDEBUG"
+		symbols "on"
+		toolset "gcc"
+		system "linux"
+		toolchainversion ("wsl2")
+		defines {"LINUX","DEBUG"}
+	
+	filter "configurations:LinuxRELEASE"
+		optimize "on"
+		toolset "gcc"
+		system "linux"
+		toolchainversion ("wsl2")
+		defines {"LINUX","RELEASE"}
