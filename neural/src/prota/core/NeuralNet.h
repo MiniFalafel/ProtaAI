@@ -21,7 +21,7 @@ namespace prota
 		unsigned int GetNumInputs() const;
 
 		// Propogate!!!
-		std::vector<float> Propogate(std::vector<float> inputs);
+		std::vector<float> Propagate(std::vector<float> inputs);
 
 	public: // STATIC PUBLIC ----------------------------------------
 

@@ -40,7 +40,7 @@ namespace prota
 	}
 
 	// PROPOGATION
-	std::vector<float> NeuralNet::Propogate(std::vector<float> inputs)
+	std::vector<float> NeuralNet::Propagate(std::vector<float> inputs)
 	{	// Validate that 'inputs' is the right size
 		P_ASSERT(inputs.size() == GetNumInputs(), "Number of inputs provided does NOT match inputs of this network");
 
