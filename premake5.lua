@@ -10,6 +10,8 @@ workspace "PROTA"
 		"LinuxRELEASE",
 	}
 	
+	startproject "SANDBOX"
+	
 -- bin directory
 outdir = "%{cfg.buildcfg}-%{cfg.architecture}/"
 

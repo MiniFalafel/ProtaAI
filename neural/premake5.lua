@@ -1,6 +1,6 @@
 -- Project NEURAL
 project "NEURAL"
-	kind "SharedLib" -- can be changed to StaticLib
+	kind "StaticLib" -- can be changed to StaticLib
 	language "C++"
 	cppdialect "C++17"
 	
@@ -12,6 +12,11 @@ project "NEURAL"
 	{
 		"src/**.h",
 		"src/**.cpp"
+	}
+	
+	includedirs
+	{
+		"%{prj.location}/src/"
 	}
 	
 	-- filters for compiler definitions
