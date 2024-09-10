@@ -1,5 +1,5 @@
 
-#include "prota/Synapse.h"
+#include "prota/core/Synapse.h"
 
 namespace prota
 {

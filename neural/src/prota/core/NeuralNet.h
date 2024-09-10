@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Neuron.h"
+#include "prota/core/Neuron.h"
 
 namespace prota
 {

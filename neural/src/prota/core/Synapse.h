@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "Connector.h"
+#include "prota/core/Connector.h"
 
 namespace prota
 {

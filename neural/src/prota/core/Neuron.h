@@ -2,8 +2,8 @@
 
 #include <vector>
 
-#include "Connector.h"
-#include "Synapse.h"
+#include "prota/core/Connector.h"
+#include "prota/core/Synapse.h"
 
 namespace prota
 {

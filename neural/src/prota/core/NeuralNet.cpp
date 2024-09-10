@@ -1,6 +1,6 @@
 #include "NeuralNet.h"
 
-#include "util/Log.h"
+#include "prota/util/Log.h"
 
 namespace prota
 {
