@@ -21,7 +21,7 @@ namespace prota
 		unsigned int GetNumInputs() const;
 
 		// Propogate!!!
-		void Propogate(std::vector<float> inputs);
+		std::vector<float> Propogate(std::vector<float> inputs);
 
 	};
 

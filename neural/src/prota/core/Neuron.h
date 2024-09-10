@@ -18,6 +18,9 @@ namespace prota
 
 		Neuron(std::vector<std::shared_ptr<Connector>> connections);
 
+		// UTILITY
+		void Calculate() override;
+
 	private: // STATIC PRIVATE
 
 		// Generation settings
@@ -27,7 +30,7 @@ namespace prota
 	public: // STATIC PUBLIC
 
 		// SETTER
-		static void SetGeneration(bool doRandomWeights) { s_RandomWeights = doRandomWeights; }
+		static void SetGeneration(bool doRandomWeights) { srand(time(nullptr)); s_RandomWeights = doRandomWeights; }
 
 		// GETTER
 		static bool IsGenerationRandom() { return s_RandomWeights; }

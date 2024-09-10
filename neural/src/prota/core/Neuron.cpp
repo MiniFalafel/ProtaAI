@@ -19,4 +19,15 @@ namespace prota
 		}
 	}
 
+	void Neuron::Calculate()
+	{	// Sum result of all synapses
+		float sum = 0.0f;
+		for (std::shared_ptr<Synapse> s : m_Synapses)
+		{
+			sum += s->toNeuron->GetValue() * s->Weight;
+		}
+		// Put sum through transfer function and set value
+		SetValue(SigmoidTangential(sum));
+	}
+
 }

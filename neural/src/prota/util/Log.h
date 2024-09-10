@@ -51,10 +51,10 @@ namespace prota
 	std::ostream* Log::s_Stream = &std::cout;
 
 	// DEFINES FOR QUICK LOGGING STUFF
-#define ERROR(msg) prota::Log::LOG("ERROR", msg, prota::LogLevel::ERROR); __debugbreak();
-#define WARN(msg) prota::Log::LOG("WARN", msg, prota::LogLevel::WARN);
-#define INFO(msg) prota::Log::LOG("INFO", msg, prota::LogLevel::INFO);
+#define P_LOG_ERROR(msg) prota::Log::LOG("ERROR", msg, prota::LogLevel::ERROR); __debugbreak();
+#define P_LOG_WARN(msg) prota::Log::LOG("WARN", msg, prota::LogLevel::WARN);
+#define P_LOG_INFO(msg) prota::Log::LOG("INFO", msg, prota::LogLevel::INFO);
 
-#define ASSERT(x, msg) if (!(x)) { prota::Log::LOG("ASSERTION_ERROR", msg, prota::LogLevel::ERROR); __debugbreak(); }
+#define P_ASSERT(x, msg) if (!(x)) { prota::Log::LOG("ASSERTION_ERROR", msg, prota::LogLevel::ERROR); __debugbreak(); }
 
 }
