@@ -5,7 +5,7 @@ int main()
 	prota::Log::SetLogLevel(prota::INFO);
 
 	// Randomize weights
-	prota::Neuron::SetGeneration(true);
+	prota::NeuralNet::SetWeightGeneration(true);
 
 	// EXAMPLE NEURONS
 	prota::Layer l = {

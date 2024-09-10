@@ -23,6 +23,12 @@ namespace prota
 		// Propogate!!!
 		std::vector<float> Propogate(std::vector<float> inputs);
 
+	public: // STATIC PUBLIC ----------------------------------------
+
+		// Wrapper of the neuron static method (makes more sense API wise, but still want neuron to have access to it)
+		static void SetWeightGeneration(bool doRandomWeights) { Neuron::SetWeightGeneration(doRandomWeights); }
+
+
 	};
 
 }
