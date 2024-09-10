@@ -2,7 +2,7 @@
 project "NEURAL"
 	kind "StaticLib" -- can be changed to StaticLib
 	language "C++"
-	cppdialect "C++17"
+	cppdialect "C++20"
 	
 	-- output/bin dirs
 	targetdir ("bin/" .. outdir .. "%{prj.name}")

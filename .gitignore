@@ -4,8 +4,7 @@ bin-int
 
 # VS
 .vs
-**.vcxproj
-**.vcxproj.user
+**.vcxproj*
 **.sln
 
 # premake custom build
