@@ -6,12 +6,15 @@ namespace prota
 	bool Neuron::s_RandomWeights = false;
 
 	// CONSTRUCTOR
-	Neuron::Neuron(std::vector<std::shared_ptr<Connector>> connections)
+	Neuron::Neuron(Layer connections, float* weights)
 	{	// Populates the array of synapses
 		for (int i = 0; i < connections.size(); i++)
 		{
 			float w = 1.0f;
-			if (IsGenerationRandom())
+			if (weights != nullptr)
+			{	// The weight is the value at the index in weights
+				w = weights[i];
+			} else if (IsGenerationRandom())
 			{	// Get random float from [-1, 1]
 				w = (float)(rand()) / (float)(RAND_MAX / 2) - 1.0f;
 			}

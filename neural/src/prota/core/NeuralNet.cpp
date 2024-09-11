@@ -5,7 +5,8 @@
 namespace prota
 {
 
-	// CONSTRUCTOR
+	// CONSTRUCTORS
+	// Layout/generation
 	NeuralNet::NeuralNet(std::vector<unsigned int> layout)
 	{	// Validate that the layout is at least 2 layers wide
 		P_ASSERT(layout.size() >= 2, "Layout needs to have AT LEAST 2 layers (input+output layers)");
@@ -28,6 +29,33 @@ namespace prota
 			lastLayer = nextLayer;
 			// Push the layer
 			m_Layers.push_back(lastLayer);
+		}
+
+	}
+	// Weight based
+	NeuralNet::NeuralNet(std::vector<std::vector<std::vector<float>>> layerWeights)
+	{	// Assert that the size is > 0
+		P_ASSERT(layerWeights.size() > 0, "layerWeights parameter is empty");
+		
+		// Add all the input neurons
+		Layer prevLayer;
+		for (unsigned int i = 0; i < layerWeights[0][0].size(); i++)
+		{	// Create a neuron and push back (no weights because it's the input neuron)
+			prevLayer.push_back(std::make_shared<Neuron>(std::vector<std::shared_ptr<Connector>>()));
+		}
+
+		// Loop through layers
+		for (unsigned int i = 0; i < layerWeights.size(); i++)
+		{	// Check that this layer isn't empty
+			P_ASSERT(layerWeights[i].size() > 0, "A layer in layerWeights is empty");
+			// Loop through each neuron in this layer
+			Layer nextLayer;
+			for (unsigned int j = 0; j < layerWeights[i].size(); j++)
+			{	// Create a neuron pointing to the previous layer's neurons with leaded weights
+				std::shared_ptr<Neuron> n = std::make_shared<Neuron>(prevLayer, &layerWeights[i][j][0]);
+
+			}
+
 		}
 
 	}

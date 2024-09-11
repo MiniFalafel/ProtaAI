@@ -16,7 +16,7 @@ namespace prota
 
 	public:
 
-		Neuron(std::vector<std::shared_ptr<Connector>> connections);
+		Neuron(Layer connections, float* weights = nullptr);
 
 		// UTILITY
 		void Calculate() override;

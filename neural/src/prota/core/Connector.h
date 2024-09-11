@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
 
 // The entire purpose of this class is to avoid causing circular import issues with 
 // Synapses referencing Neurons and Neurons referencing Synapses
@@ -39,5 +40,8 @@ namespace prota
 		virtual void Calculate() = 0;
 		
 	};
+
+	// Layer type (because I hate typing this shit out so much)
+	typedef std::vector<std::shared_ptr<Connector>> Layer;
 
 }

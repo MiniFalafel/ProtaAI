@@ -4,8 +4,6 @@
 
 namespace prota
 {
-	typedef std::vector<std::shared_ptr<Connector>> Layer;
-
 	class NeuralNet
 	{
 
@@ -14,8 +12,11 @@ namespace prota
 
 	public:
 
-		// CONSTRUCTOR
+		// CONSTRUCTORS
+		// Layout/generation based
 		NeuralNet(std::vector<unsigned int> layout);
+		// Weight based
+		NeuralNet(std::vector<std::vector<std::vector<float>>> layerWeights);
 
 		// GETTERS
 		unsigned int GetNumInputs() const;
