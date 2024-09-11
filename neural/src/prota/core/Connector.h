@@ -26,7 +26,7 @@ namespace prota
 		// TRANSFER FUNCTIONS
 		float SigmoidTangential(float t)
 		{	// o(x) = 1 / (1 + e^-x) -> (0, 1), so: v(t) = 2 * o(x) - 1
-			return 2.0 / (1 + exp(-t)) - 1.0;
+			return 2.0f / (1 + exp(-t)) - 1.0f;
 		}
 
 		float d_SigmoidTangential(float t)

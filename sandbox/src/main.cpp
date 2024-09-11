@@ -22,12 +22,12 @@ int main()
 	prota::Log::SetLogLevel(prota::LogLevel::INFO);
 	
 	// Inputs
-	std::vector<float> inputs = {0.5, 0.7};
+	std::vector<float> inputs = {0.5f, 0.7f};
 
 	// RUN AND DISPLAY ----------------------------------------------
 	
 	// propogate inputs
-	std::vector<float> out = net.Propagate({ 0.5, 0.7 });
+	std::vector<float> out = net.Propagate(inputs);
 
 	// display output
 	P_LOG_INFO(std::format("OUT: {}", out[0]));

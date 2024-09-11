@@ -30,7 +30,7 @@ namespace prota
 	public: // STATIC PUBLIC
 
 		// SETTER
-		static void SetWeightGeneration(bool doRandomWeights) { srand(time(nullptr)); s_RandomWeights = doRandomWeights; }
+		static void SetWeightGeneration(bool doRandomWeights) { srand((unsigned int)time(nullptr)); s_RandomWeights = doRandomWeights; }
 
 		// GETTER
 		static bool IsGenerationRandom() { return s_RandomWeights; }
