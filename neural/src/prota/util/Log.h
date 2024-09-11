@@ -42,13 +42,7 @@ namespace prota
 			*s_Stream << std::format("[{}]: {}\n", tag, message);
 
 		}
-
-
 	};
-
-	// Static member setting
-	LogLevel Log::s_Level = LogLevel::None;
-	std::ostream* Log::s_Stream = &std::cout;
 
 	// DEFINES FOR QUICK LOGGING STUFF
 #define P_LOG_ERROR(msg) prota::Log::LOG("ERROR", msg, prota::LogLevel::ERROR); __debugbreak();
