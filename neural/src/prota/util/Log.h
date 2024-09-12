@@ -44,11 +44,23 @@ namespace prota
 		}
 	};
 
+	// Debug break
+#if defined(WINDOWS)
+	#define DEBUG_BREAK __debugbreak();
+#elif defined(LINUX)
+	#include <signal.h>
+	#if defined(SIGTRAP)
+		#define DEBUG_BREAK raise(SIGTRAP)
+	#else
+		#define DEBIG_BREAK raise(SIGABRT)
+	#endif
+#endif
+
 	// DEFINES FOR QUICK LOGGING STUFF
-#define P_LOG_ERROR(msg) prota::Log::LOG("ERROR", msg, prota::LogLevel::ERROR); __debugbreak();
+#define P_LOG_ERROR(msg) prota::Log::LOG("ERROR", msg, prota::LogLevel::ERROR); DEBUG_BREAK;
 #define P_LOG_WARN(msg) prota::Log::LOG("WARN", msg, prota::LogLevel::WARN);
 #define P_LOG_INFO(msg) prota::Log::LOG("INFO", msg, prota::LogLevel::INFO);
 
-#define P_ASSERT(x, msg) if (!(x)) { prota::Log::LOG("ASSERTION_ERROR", msg, prota::LogLevel::ERROR); __debugbreak(); }
+#define P_ASSERT(x, msg) if (!(x)) { prota::Log::LOG("ASSERTION_ERROR", msg, prota::LogLevel::ERROR); DEBUG_BREAK; }
 
 }

@@ -25,15 +25,20 @@ namespace prota
 		void SetValue(float value) { m_Value = value; }
 
 		// TRANSFER FUNCTIONS
-		float SigmoidTangential(float t)
+		static inline float SigmoidTangential(float t)
 		{	// o(x) = 1 / (1 + e^-x) -> (0, 1), so: v(t) = 2 * o(x) - 1
 			return 2.0f / (1 + exp(-t)) - 1.0f;
 		}
 
-		float d_SigmoidTangential(float t)
+		static inline float d_SigmoidTangential(float t)
 		{	// Derivative of the SigmoidTangential method
 			float e_t = exp(t);
 			return 2.0f * e_t / pow(1.0f + e_t, 2.0f);
+		}
+
+		static inline float inv_SigmoidTangential(float t)
+		{	// Inverse of the tangential sigmoid function
+			return -log(2.0f / (t + 1.0f) - 1.0f);
 		}
 
 		// VIRTUAL METHODS
