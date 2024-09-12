@@ -3,20 +3,33 @@
 int main()
 {
 	/*
-	TEST NETWORK: has layout of 2, 2, 1 (2 inputs, 2 in hidden layer, 1 output)
+	TEST NETWORK: has layout of {2, 3, 1}
 
-	if:
-		- inputs are {0.5, 0.7}
-		- AND all weights are 1.0
-	then:
-		- output should be APPROXIMATELY 0.49075135...
+	Pre-determined weights (see in array below)
+
+	Output should look like this:
+		> 0.227517468...
 
 	*/
 
 	// SETUP --------------------------------------------------------
-	// Make sure neuron generation only generates weights of 1.0f
-	prota::NeuralNet::SetWeightGeneration(false);
-	prota::NeuralNet net({2, 2, 1});
+	// Weights
+	std::vector<std::vector<std::vector<float>>> weights = {
+		{	// LAYER 1 (first hidden layer: 3 neurons)
+			{0.5f,  0.25f},
+			{0.7f,  1.0f},
+			{0.12f, 0.3f},
+		},
+		{	// LAYER 2 (output layer: 1 neuron)
+			{0.4f, 0.76f, 0.1f},
+		},
+	};
+	
+	// Feed weights into the network constructor
+	prota::NeuralNet net(weights);
+
+	// DEBUG DISPLAY
+	net.DisplayDebug();
 
 	// Setup logging
 	prota::Log::SetLogLevel(prota::LogLevel::INFO);
