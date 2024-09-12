@@ -5,8 +5,8 @@ project "NEURAL"
 	cppdialect "C++20"
 	
 	-- output/bin dirs
-	targetdir ("bin/" .. outdir .. "%{prj.name}")
-	objdir ("bin-int/" .. outdir .. "%{prj.name}")
+	targetdir ("%{prj.location}/bin/" .. outdir .. "%{prj.name}")
+	objdir ("%{prj.location}/bin/int/" .. outdir .. "%{prj.name}")
 	
 	files
 	{
