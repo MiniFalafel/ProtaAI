@@ -43,6 +43,8 @@ namespace prota
 		{	// Create a neuron and push back (no weights because it's the input neuron)
 			prevLayer.push_back(std::make_shared<Neuron>(std::vector<std::shared_ptr<Connector>>()));
 		}
+		// Push input layer
+		m_Layers.push_back(prevLayer);
 
 		// Loop through layers
 		for (unsigned int i = 0; i < layerWeights.size(); i++)
@@ -53,11 +55,13 @@ namespace prota
 			for (unsigned int j = 0; j < layerWeights[i].size(); j++)
 			{	// Create a neuron pointing to the previous layer's neurons with leaded weights
 				std::shared_ptr<Neuron> n = std::make_shared<Neuron>(prevLayer, &layerWeights[i][j][0]);
-
+				nextLayer.push_back(n);
 			}
-
+			// Push the layer
+			m_Layers.push_back(nextLayer);
+			// Update prevLayer
+			prevLayer = nextLayer;
 		}
-
 	}
 
 	// GETTER
@@ -65,6 +69,22 @@ namespace prota
 	{	// Verify m_Layers size
 		P_ASSERT(m_Layers.size() > 0, "There are no layers in this NeuralNet");
 		return m_Layers[0].size();
+	}
+
+	// Really shitty Debug display method
+	void NeuralNet::DisplayDebug()
+	{	// Loop through m_Layers
+		for (unsigned int l = 0; l < m_Layers.size(); l++)
+		{	// Loop through neurons
+			// Layer marker
+			std::cout << "L" << l << ":";
+			for (unsigned int i = 0; i < m_Layers[l].size(); i++)
+			{	// Display neuron on tLhe same line
+				std::cout << "\tN ";
+			}
+			// Newline
+			std::cout << '\n';
+		}
 	}
 
 	// PROPOGATION

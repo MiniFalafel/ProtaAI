@@ -21,6 +21,9 @@ namespace prota
 		// GETTERS
 		unsigned int GetNumInputs() const;
 
+		// Display (for debugging)
+		void DisplayDebug();
+
 		// Propogate!!!
 		std::vector<float> Propagate(std::vector<float> inputs);
 
