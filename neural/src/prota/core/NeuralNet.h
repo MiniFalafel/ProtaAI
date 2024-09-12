@@ -19,13 +19,16 @@ namespace prota
 		NeuralNet(std::vector<std::vector<std::vector<float>>> layerWeights);
 
 		// GETTERS
-		unsigned int GetNumInputs() const;
+		uint32_t GetNumInputs() const;
 
 		// Display (for debugging)
 		void DisplayDebug();
 
 		// Propogate!!!
 		std::vector<float> Propagate(std::vector<float> inputs);
+
+		// Backwards propagation
+		void BackPropagate(std::vector<float> expectedOut);
 
 	public: // STATIC PUBLIC ----------------------------------------
 

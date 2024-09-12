@@ -65,10 +65,10 @@ namespace prota
 	}
 
 	// GETTER
-	unsigned int NeuralNet::GetNumInputs() const
+	uint32_t NeuralNet::GetNumInputs() const
 	{	// Verify m_Layers size
 		P_ASSERT(m_Layers.size() > 0, "There are no layers in this NeuralNet");
-		return m_Layers[0].size();
+		return (uint32_t)m_Layers[0].size();
 	}
 
 	// Really shitty Debug display method
@@ -112,8 +112,21 @@ namespace prota
 					r.push_back(n->GetValue());
 			}
 		}
-
 		return r;
+	}
+	
+	// Backward propagate
+	void NeuralNet::BackPropagate(std::vector<float> expectedOut)
+	{	// Loop backwards through m_Layers
+		for (unsigned int i = (unsigned int)(m_Layers.size() - 1); i > -1; i--)
+		{	// Loop through the neurons
+			for (unsigned int n = 0; n < (unsigned int)m_Layers[i].size(); n++)
+			{	// Calculate delta using Newton's root approximation theory (gradient descent)
+				// We actually don't have x sub n, we only have f(u), so f'(x) = f'(inv_f(u));
+				float fx = m_Layers[i][n]->GetValue();
+				float delta = -fx / Neuron::d_SigmoidTangential(Neuron::inv_SigmoidTangential(fx));
+			}
+		}
 	}
 
 }
