@@ -1,3 +1,6 @@
+-- REQUIREMENTS
+require "vscode"
+
 -- Workspace
 workspace "PROTA"
 	architecture "x86_64"

@@ -9,3 +9,9 @@ bin-int
 
 # premake custom build
 premake/beta/*
+
+# vscode
+**Makefile
+.vscode
+**.code-workspace
+

@@ -29,13 +29,13 @@ project "NEURAL"
 	filter "configurations:LinuxDEBUG"
 		toolset "gcc"
 		system "linux"
-		toolchainversion ("wsl2")
+		--toolchainversion ("wsl2")
 		defines {"LINUX","DEBUG"}
 	
 	filter "configurations:LinuxRELEASE"
 		toolset "gcc"
 		system "linux"
-		toolchainversion ("wsl2")
+		--toolchainversion ("wsl2")
 		defines {"LINUX","RELEASE"}
 		
 	-- Staticlib vs. SharedLib	
@@ -43,3 +43,4 @@ project "NEURAL"
 		defines {"BUILD_DLL"}
 	
 	
+
