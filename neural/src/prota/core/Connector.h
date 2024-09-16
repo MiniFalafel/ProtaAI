@@ -2,6 +2,8 @@
 
 #include <iostream>
 #include <vector>
+#include <math.h>
+#include <memory>
 
 // The entire purpose of this class is to avoid causing circular import issues with 
 // Synapses referencing Neurons and Neurons referencing Synapses

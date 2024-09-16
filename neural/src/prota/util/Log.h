@@ -1,7 +1,6 @@
 #pragma once
 
 #include <iostream>
-#include <format>
 
 namespace prota
 {
@@ -39,7 +38,7 @@ namespace prota
 				return;
 
 			// cout with tag
-			*s_Stream << std::format("[{}]: {}\n", tag, message);
+			*s_Stream << "[" << tag << "]: " << message << "\n";
 
 		}
 	};
