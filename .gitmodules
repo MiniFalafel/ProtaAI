@@ -1,0 +1,3 @@
+[submodule "setup/premake/vscode"]
+	path = setup/premake/vscode
+	url = git@github.com:MiniFalafel/premake-vscode.git
